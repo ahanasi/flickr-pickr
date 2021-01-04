@@ -2,7 +2,6 @@ require "pry"
 class StaticPagesController < ApplicationController
 
   def home
-    @flickr = Flickr.new
-    @list   = @flickr.photos.search(tags: "puppies")
+    @results = Flickr.photos.search(tags: "puppies", page: params[:page], per_page: 12)
   end
 end

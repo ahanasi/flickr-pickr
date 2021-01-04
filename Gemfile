@@ -28,11 +28,8 @@ gem 'bulma-rails', '~> 0.9.1'
 #Pry
 gem 'pry', '~> 0.13.1'
 
-#jQuery
-gem 'jquery-rails'
-
-#Lazy-Load
-gem 'jquery_lazy_load', '~> 0.1.0.15'
+#will-paginate
+gem 'will_paginate', '~> 3.1.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -41,7 +38,7 @@ gem 'jquery_lazy_load', '~> 0.1.0.15'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 #Flickr API
-gem 'flickr', '~> 2.0', '>= 2.0.2'
+gem "flickr-objects"
 
 #Figaro Gem
 gem 'figaro', '~> 1.2'

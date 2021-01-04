@@ -30,33 +30,23 @@
 </section>
 
 <section class="section">
-  <div class="columns is-multiline">
-    <% @list.each do |photo| %>
-      <% info = @flickr.photos.getInfo(photo_id: photo.id) %>
-      <% photo_url = Flickr.url_b(info)%>
-      <div class="column is-4">
-            <%= image_tag "#{photo_url}", loading: "lazy" %>
-      </div>
-      
-    <% end %>
+  <div class="container is-fluid">
+      <div class="columns is-multiline">
+      <% @results.each do |photo| %>
+        <div class="column is-4">
+        <figure class="image">
+          <%= image_tag "https://live.staticflickr.com/#{photo.server}/#{photo.id}_#{photo.secret}.jpg", loading: "lazy" %>
+          </figure>
+        </div>
+      <% end %>
+    </div>
   </div>
 </section>
 
-<nav class="pagination" role="navigation" aria-label="pagination">
-  <a class="pagination-previous" title="This is the first page" disabled>Previous</a>
-  <a class="pagination-next">Next page</a>
-  <ul class="pagination-list">
-    <li>
-      <a class="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>
-    </li>
-    <li>
-      <a class="pagination-link" aria-label="Goto page 2">2</a>
-    </li>
-    <li>
-      <a class="pagination-link" aria-label="Goto page 3">3</a>
-    </li>
-  </ul>
-</nav>
+<!-- render page links in the view: -->
+<% if @results.any? %>
+  <%= will_paginate @results %>
+<% end %>
 
 <h1>StaticPages#home</h1>
 <p>Find me in app/views/static_pages/home.html.erb</p>
