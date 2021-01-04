@@ -1,2 +1,62 @@
+<nav class="navbar is-light" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <%= image_tag("brand.png", width: '200', class: "navbar-item") %>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item">
+        Home
+      </a>
+    </div>
+  </div>
+</nav>
+
+<section class="section columns is-centered">
+  <%= form_with url: "/static_pages/home", method: :get do |form| %>  
+    <div class="column field is-grouped ">
+      <p class="control">
+        <%= form.text_field :query, placeholder: "Flickr User ID", class: "input" %>
+      </p>
+      <p class="control">
+        <%= form.submit "Search", class: "button is-primary" %>
+      </p>
+    </div>
+  <% end %>
+</section>
+
+<section class="section">
+  <div class="columns is-multiline">
+    <% @list.each do |photo| %>
+      <% info = @flickr.photos.getInfo(photo_id: photo.id) %>
+      <% photo_url = Flickr.url_b(info)%>
+      <div class="column is-4">
+            <%= image_tag "#{photo_url}", loading: "lazy" %>
+      </div>
+      
+    <% end %>
+  </div>
+</section>
+
+<nav class="pagination" role="navigation" aria-label="pagination">
+  <a class="pagination-previous" title="This is the first page" disabled>Previous</a>
+  <a class="pagination-next">Next page</a>
+  <ul class="pagination-list">
+    <li>
+      <a class="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>
+    </li>
+    <li>
+      <a class="pagination-link" aria-label="Goto page 2">2</a>
+    </li>
+    <li>
+      <a class="pagination-link" aria-label="Goto page 3">3</a>
+    </li>
+  </ul>
+</nav>
+
 <h1>StaticPages#home</h1>
 <p>Find me in app/views/static_pages/home.html.erb</p>

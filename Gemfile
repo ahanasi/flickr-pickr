@@ -22,6 +22,18 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+#Bulma
+gem 'bulma-rails', '~> 0.9.1'
+
+#Pry
+gem 'pry', '~> 0.13.1'
+
+#jQuery
+gem 'jquery-rails'
+
+#Lazy-Load
+gem 'jquery_lazy_load', '~> 0.1.0.15'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
