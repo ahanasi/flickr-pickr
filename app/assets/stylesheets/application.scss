@@ -14,4 +14,8 @@
  *= require_self
  */
 
+ $pagination-focus-border-color: hsl(171, 100%, 41%);
+ $pagination-current-background-color: hsl(171, 100%, 41%);
+ $pagination-current-border-color: hsl(171, 100%, 41%);
+ $link:  hsl(0, 0%, 21%);
  @import "bulma";

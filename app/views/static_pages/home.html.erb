@@ -9,44 +9,37 @@
   </div>
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
-        Home
-      </a>
+      <%= link_to "Home", root_path, class: "navbar-item" %>
     </div>
   </div>
 </nav>
 
 <section class="section columns is-centered">
-  <%= form_with url: "/static_pages/home", method: :get do |form| %>  
-    <div class="column field is-grouped ">
-      <p class="control">
-        <%= form.text_field :query, placeholder: "Flickr User ID", class: "input" %>
-      </p>
-      <p class="control">
-        <%= form.submit "Search", class: "button is-primary" %>
-      </p>
-    </div>
-  <% end %>
+  <%= render "form" %>
 </section>
 
 <section class="section">
   <div class="container is-fluid">
       <div class="columns is-multiline">
-      <% @results.each do |photo| %>
-        <div class="column is-4">
-        <figure class="image">
-          <%= image_tag "https://live.staticflickr.com/#{photo.server}/#{photo.id}_#{photo.secret}.jpg", loading: "lazy" %>
-          </figure>
+      <% if !@results.empty? %>
+        <% @results.each do |photo| %>
+          <div class="column is-4">
+          <figure class="image">
+            <%= image_tag "https://live.staticflickr.com/#{photo.server}/#{photo.id}_#{photo.secret}.jpg", loading: "lazy" %>
+            </figure>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="column has-text-centered">
+          <h1 class="subtitle is-2">No public photos found for this user!</h1>
         </div>
       <% end %>
     </div>
   </div>
 </section>
 
-<!-- render page links in the view: -->
 <% if @results.any? %>
-  <%= will_paginate @results %>
+  <footer class="footer">
+    <%= will_paginate @results, renderer: BulmaPagination::Rails, class: "is-centered" %>
+  </footer>
 <% end %>
-
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>

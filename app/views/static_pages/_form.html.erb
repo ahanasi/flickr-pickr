@@ -1,0 +1,27 @@
+<div class="column is-4">
+  <%= form_with url: "/static_pages/home", method: :get, remote: true do |form| %> 
+    <div class="field is-grouped">
+      <p class="control">
+        <%= form.text_field :flickr_user_id, placeholder: "Search by User ID", class: "input", required: true %>
+      </p>
+      <p class="control">
+        <%= form.submit "Search", class: "button is-primary" %>
+      </p>
+    </div>
+  <% end %>
+</div> 
+
+<div class="column is-3">
+  <%= form_with url: "/static_pages/home", method: :get do |form| %> 
+    <div class="field is-grouped">
+      <p class="control">
+        <%= form.text_field :tag, placeholder: "Search by Tag", class: "input", required: true %>
+      </p>
+      <p class="control">
+        <%= form.submit "Search", class: "button is-primary" %>
+      </p>
+    </div>
+  <% end %>
+</div> 
+
+

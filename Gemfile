@@ -31,6 +31,12 @@ gem 'pry', '~> 0.13.1'
 #will-paginate
 gem 'will_paginate', '~> 3.1.0'
 
+#Kaminari
+gem 'kaminari'
+
+#Bulma paginate
+gem 'will_paginate-bulma'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -39,6 +45,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 #Flickr API
 gem "flickr-objects"
+
+#Rubocop
+gem 'rubocop', '~> 1.7'
 
 #Figaro Gem
 gem 'figaro', '~> 1.2'
