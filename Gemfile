@@ -29,9 +29,6 @@ gem 'pry', '~> 0.13.1'
 #will-paginate
 gem 'will_paginate', '~> 3.1.0'
 
-#Kaminari
-gem 'kaminari'
-
 #Bulma paginate
 gem 'will_paginate-bulma'
 
