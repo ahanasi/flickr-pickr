@@ -25,13 +25,13 @@
         <% @results.each do |photo| %>
           <div class="column is-4">
           <figure class="image">
-            <%= image_tag "https://live.staticflickr.com/#{photo.server}/#{photo.id}_#{photo.secret}.jpg", loading: "lazy" %>
+            <%= link_to image_tag("https://live.staticflickr.com/#{photo.server}/#{photo.id}_#{photo.secret}.jpg", loading: "lazy"), photo.short_url %>
             </figure>
           </div>
         <% end %>
       <% else %>
         <div class="column has-text-centered">
-          <h1 class="subtitle is-2">No public photos found for this user!</h1>
+          <h1 class="subtitle is-2">No results found!</h1>
         </div>
       <% end %>
     </div>
